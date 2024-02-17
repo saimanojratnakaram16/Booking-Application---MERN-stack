@@ -25,7 +25,8 @@ function App() {
     {
       path: "*",
       element: <Navigate to="/"/>,
-    },]
+    }
+  ]
 }]);
   return (
     <React.StrictMode>
