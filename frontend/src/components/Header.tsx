@@ -14,7 +14,7 @@ const Header = () => {
           {isLoggedIn ? (
             <>
               <Link className="text-white px-4 py-2 text-lg" to="/my-bookings/">My Bookings</Link>
-              <Link className="text-white px-4 py-2 text-lg"  to="/my-hotels/">My Hotels</Link>
+              <Link className="text-white px-4 py-2 text-lg"  to="/add-hotel">Add Hotels</Link>
              <SignOutBtn/>
             </>
           ) : (

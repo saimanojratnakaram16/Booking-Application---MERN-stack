@@ -3,8 +3,12 @@ import { createBrowserRouter, Navigate, RouterProvider,} from "react-router-dom"
 import Layout from "./layouts/Layout";
 import Register from "./pages/Register";
 import SignIn from "./pages/SignIn";
+import AddHotel from "./pages/AddHotel";
+import { useAppContext } from "./contexts/AppContext";
 
 function App() {
+
+  const {isLoggedIn} = useAppContext();
 
   const router = createBrowserRouter([{
     path:"/",
@@ -21,6 +25,10 @@ function App() {
     {
       path: "/signIn",
       element:  <SignIn/>,
+    },
+    {
+      path: '/add-hotel',
+      element: isLoggedIn ? <AddHotel /> : <Navigate to="/signIn" />,
     },
     {
       path: "*",
