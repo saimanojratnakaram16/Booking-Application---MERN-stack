@@ -5,6 +5,7 @@ import Register from "./pages/Register";
 import SignIn from "./pages/SignIn";
 import AddHotel from "./pages/AddHotel";
 import { useAppContext } from "./contexts/AppContext";
+import Home from "./pages/Home";
 
 function App() {
 
@@ -15,8 +16,8 @@ function App() {
     element: <Layout/>,
    children: [
     {
-      path: "/",
-      element:  <p> Home </p>,
+      index:true,
+      element: <Home/>,
     },
     {
       path: "/register",
@@ -30,10 +31,6 @@ function App() {
       path: '/add-hotel',
       element: isLoggedIn ? <AddHotel /> : <Navigate to="/signIn" />,
     },
-    {
-      path: "*",
-      element: <Navigate to="/"/>,
-    }
   ]
 }]);
   return (
