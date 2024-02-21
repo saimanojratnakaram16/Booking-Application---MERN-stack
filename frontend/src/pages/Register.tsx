@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { useMutation, useQueryClient } from 'react-query';
 import * as apiClient from '../api-client';
 import { useAppContext } from '../contexts/AppContext';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 export type RegisterFormFields = {
@@ -131,6 +131,7 @@ const Register: React.FC = () => {
           <input type="password" className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none" name="confirmPassword" onChange={(e) => form.current.confirmPassword = e.target.value} />
           {error.confirmPassword && <p className="text-red-500">{error.confirmPassword}</p>}
         </label>
+        <p className='mb-3'>Already have an account? <Link className='cursor-pointer text-blue-500' to="/signIn">Log In</Link></p>
 
         <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none">Register</button>
       </form>

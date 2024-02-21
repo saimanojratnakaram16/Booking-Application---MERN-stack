@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import * as apiClient from '../api-client';
 import { useMutation, useQueryClient } from 'react-query';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAppContext } from '../contexts/AppContext';
 
 export type LogInFormFields = {
@@ -75,6 +75,7 @@ const SignIn = () => {
           <input type="password" className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none" name="password" />
           {error?.password && <p>{error.password}</p>}
         </label>
+        <p className='mb-3'>Create a new Account? <Link className='cursor-pointer text-blue-500' to="/register">Sign Up</Link></p>
         <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none">Sign In</button>
       </form>
     </div>
