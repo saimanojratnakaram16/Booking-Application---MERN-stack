@@ -6,17 +6,19 @@ import SignIn from "./pages/SignIn";
 import AddHotel from "./pages/AddHotel";
 import { useAppContext } from "./contexts/AppContext";
 import Home from "./pages/Home";
+import MyHotels from "./pages/MyHotels";
+import EditHotel from "./pages/EditHotel";
+import Search from "./pages/Search";
 
 function App() {
 
   const {isLoggedIn} = useAppContext();
 
   const router = createBrowserRouter([{
-    path:"/",
     element: <Layout/>,
    children: [
     {
-      index:true,
+      path: "/",
       element: <Home/>,
     },
     {
@@ -28,9 +30,25 @@ function App() {
       element:  <SignIn/>,
     },
     {
+      path: "/search",
+      element:  <Search/>,
+    },
+    {
       path: '/add-hotel',
       element: isLoggedIn ? <AddHotel /> : <Navigate to="/signIn" />,
     },
+    {
+      path: '/my-hotels',
+      element: isLoggedIn ? <MyHotels /> : <Navigate to="/signIn" />,
+    },
+    {
+      path: '/edit-hotel/:hotelId',
+      element: isLoggedIn ? <EditHotel/> : <Navigate to="/signIn"/>,
+    },
+    {
+      path: "*",
+      element: <Navigate to="/"/>,
+    }
   ]
 }]);
   return (

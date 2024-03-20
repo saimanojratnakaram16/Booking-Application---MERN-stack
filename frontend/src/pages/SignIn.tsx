@@ -19,8 +19,10 @@ const SignIn = () => {
   const mutation = useMutation(apiClient.logIn, 
     {onSuccess: async() => {
         await queryClient.invalidateQueries("validateToken");
+        navigate("/", { replace: true });
+        window.location.reload();
         showToast({message: "Logged In successfully", type: "SUCCESS"});
-        navigate("/");
+        console.log("navigating to /");
     },
     onError: () =>{
     showToast({message: "Login Failed", type: "ERROR"});
